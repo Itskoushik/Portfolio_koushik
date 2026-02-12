@@ -6,8 +6,18 @@ import { useState, useRef, useEffect } from "react"
 import { Send, Github, Linkedin, Mail, MapPin, Phone, CheckCircle } from "lucide-react"
 import { MagneticButton } from "@/components/magnetic-button"
 
-function RippleInput({ id, label, type = "text", placeholder, value, onChange, textarea = false }: {
+function RippleInput({
+  id,
+  name,
+  label,
+  type = "text",
+  placeholder,
+  value,
+  onChange,
+  textarea = false,
+}: {
   id: string
+  name: string
   label: string
   type?: string
   placeholder: string
@@ -30,6 +40,7 @@ function RippleInput({ id, label, type = "text", placeholder, value, onChange, t
         {label}
       </label>
       <Tag
+        name={name}
         id={id}
         type={type}
         required
@@ -165,13 +176,19 @@ export function ContactSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            <form
-              onSubmit={handleSubmit}
-              className="rounded-2xl border border-border/50 bg-card/60 p-6 backdrop-blur-sm sm:p-8"
-            >
+            <form 
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                onSubmit={handleSubmit}
+              >
+              <input type="hidden" name="form-name" value="contact" />
+
+            
               <div className="space-y-6">
                 <RippleInput
                   id="name"
+                  name="name"
                   label="Your Name"
                   placeholder="Binod"
                   value={formState.name}
@@ -179,6 +196,7 @@ export function ContactSection() {
                 />
                 <RippleInput
                   id="email"
+                  name="email"
                   label="Email Address"
                   type="email"
                   placeholder="Binod@example.com"
@@ -187,6 +205,7 @@ export function ContactSection() {
                 />
                 <RippleInput
                   id="message"
+                  name="message"
                   label="Message"
                   placeholder="What would you like to build or discuss?"
                   value={formState.message}
