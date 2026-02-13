@@ -220,7 +220,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
         <div className="text-xs font-mono text-muted-foreground">
-          {phase === "coding" && "Loading portfolio..."}
+          {phase === "coding" && "Loading ..."}
           {phase === "lifting" && "Welcome."}
         </div>
 
