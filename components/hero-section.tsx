@@ -18,11 +18,11 @@ const roles = [
 ]
 
 const floatingIcons = [
-  { icon: Brain, label: "AI", x: "55%", y: "-5%", delay: 0.5, color: "text-primary" },          
-  { icon: Bot, label: "Selenium", x: "88%", y: "22%", delay: 1.2, color: "text-accent" },        
-  { icon: Terminal, label: "Python", x: "95%", y: "55%", delay: 1.5, color: "text-accent" },     
-  { icon: Code2, label: "QA Automation", x: "88%", y: "85%", delay: 1.6, color: "text-chart-3" },
-  { icon: Figma, label: "Figma", x: "55%", y: "100%", delay: 0.8, color: "text-primary" },       
+  { icon: Brain, label: "AI", x: "45%", y: "-2%", delay: 0.5, color: "text-primary" },          
+  { icon: Bot, label: "Selenium", x: "80%", y: "22%", delay: 1.2, color: "text-accent" },        
+  { icon: Terminal, label: "Python", x: "88%", y: "55%", delay: 1.5, color: "text-accent" },     
+  { icon: Code2, label: "QA Automation", x: "75%", y: "85%", delay: 1.6, color: "text-chart-3" },
+  { icon: Figma, label: "Figma", x: "45%", y: "100%", delay: 0.8, color: "text-primary" },       
   { icon: Radar, label: "GUI", x: "10%", y: "95%", delay: 2, color: "text-chart-3" },            
   { icon: Database, label: "Oracle SQL", x: "-8%", y: "52%", delay: 1.8, color: "text-accent" },
 ]
