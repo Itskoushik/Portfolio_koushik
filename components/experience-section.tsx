@@ -6,7 +6,7 @@ import { useRef, useEffect, useState } from "react"
 
 const experiences = [
   {
-    title: "Python Developer -GUI Development",
+    title: "Python Developer",
     company: "Harvel Systems",
     period: "Dec 2025 - Present",
     description:
