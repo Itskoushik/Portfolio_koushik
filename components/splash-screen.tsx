@@ -97,7 +97,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
 
     // 💻 TERMINAL TEXT
     let terminalText = ""
-    const fullTerminal = "> Loading itskoushik.netlify..."
+    const fullTerminal = "> Loading ..."
     let terminalIdx = 0
 
     // 🌧 Binary rain bg
