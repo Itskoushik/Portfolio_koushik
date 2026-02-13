@@ -17,11 +17,21 @@ const experiences = [
   },
   {
     title: "QA Automation Testing Trainee",
-    company: "PySpiders",
+    company: "PySpiders Rajajinagar",
     period: "MAY 2025 - NOV 2025",
     description:
       "Performed manual testing and automation on real-time projects like ShopperStack and QBank, creatingtest plans, test cases, and scenarios across functional, integration, system, and ad-hoc testing.\n Beta-tested the Steam game 7 Blood Moons, identifying critical issues and contributing to overall gameplay stability. \n Gained hands-on expertise in Advanced Python, Advanced Selenium, API Testing, and SQL, applying these skills to automate workflows, validate backend data, and improve overall product quality during training",
     tags: ["Appium", "ADV Selenium", "Pytest", "ADV Python", "CI/CD","J-meter","Jira","Oracle Sql"],
+    icon: Briefcase,
+    type: "work" as const,
+  },
+  {
+    title: "UI/UX Designer intern",
+    company: "Zidio Development",
+    period: "Oct 2024 - Feb 2025",
+    description:
+      "Redesigned the company website to enhance usability and improved navigation efficiency by 15%. \n Created an Energy drink-based website Nitro-Drink, showcasing design versatility.",
+    tags: ["Figma", "Framer", "Webflow", "Canva pro", "Adobe illustrator"],
     icon: Briefcase,
     type: "work" as const,
   },
