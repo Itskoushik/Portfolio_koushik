@@ -95,10 +95,23 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
       ctx.restore()
     }
 
-    // 💻 TERMINAL TEXT
-    let terminalText = ""
-    const fullTerminal = "> Loading ..."
-    let terminalIdx = 0
+    // 💻 TERMINAL TEXT SEQUENTIAL (one after another)
+    const terminalQueue = [
+      "> Compiling assets...",
+      "> Injecting scripts...",
+      "> Establishing secure connection...",
+      "> Running build sequence...",
+      "> Accessing root directory...",
+      "> Launching dev environment..."
+    ]
+
+    let currentLine = ""
+    let lineIdx = 0
+    let charIdx = 0
+    let waitAfterLine = 0
+    let allDone = false
+
+
 
     // 🌧 Binary rain bg
     const columns = Math.floor(canvas.width / 14)
@@ -127,22 +140,49 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
 
       frame++
 
-      if (frame <= totalCodeFrames) {
+      if (!allDone) {
         if (frame === 1) setPhase("coding")
 
         drawCoder(cx, cy, 1.8, 1, frame)
 
-        // typing terminal
-        if (frame % 4 === 0 && terminalIdx < fullTerminal.length) {
-          terminalText += fullTerminal[terminalIdx]
-          terminalIdx++
+        // sequential terminal typing (one line at a time)
+        if (!allDone) {
+          if (frame % 2 === 0 && waitAfterLine === 0) {
+            if (charIdx < terminalQueue[lineIdx].length) {
+              currentLine += terminalQueue[lineIdx][charIdx]
+              charIdx++
+            } else {
+              waitAfterLine = 20 // pause before next line
+            }
+          }
+
+          // wait then move to next line
+          if (waitAfterLine > 0) {
+            waitAfterLine--
+            if (waitAfterLine === 0) {
+              lineIdx++
+              currentLine = ""
+              charIdx = 0
+
+              if (lineIdx >= terminalQueue.length) {
+                allDone = true
+              }
+            }
+          }
         }
 
-        ctx.font = "16px monospace"
+        ctx.font = "15px monospace"
         ctx.fillStyle = "hsl(185,90%,55%)"
         ctx.textAlign = "center"
-        ctx.fillText(terminalText + (frame % 30 < 15 ? "_" : ""), cx, cy + 80)
+
+        ctx.fillText(
+          currentLine + (frame % 30 < 15 ? "_" : ""),
+          cx,
+          cy + 90
+        )
       }
+
+
       else {
         const liftFrame = frame - totalCodeFrames
         if (liftFrame === 1) setPhase("lifting")
@@ -180,7 +220,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
         <div className="text-xs font-mono text-muted-foreground">
-          {phase === "coding" && "Compiling portfolio..."}
+          {phase === "coding" && "Loading portfolio..."}
           {phase === "lifting" && "Welcome."}
         </div>
 
