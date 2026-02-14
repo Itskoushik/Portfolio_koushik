@@ -72,16 +72,29 @@ export function ContactSection() {
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSending(true)
-    setTimeout(() => {
-      setSending(false)
-      setSent(true)
-      setFormState({ name: "", email: "", message: "" })
-      setTimeout(() => setSent(false), 3000)
-    }, 1500)
+  const handleSubmit = async (e) => {
+  e.preventDefault()
+  setSending(true)
+
+  const formData = new FormData(e.target)
+
+  try {
+    await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+
+    setSending(false)
+    setSent(true)
+    setFormState({ name: "", email: "", message: "" })
+    setTimeout(() => setSent(false), 3000)
+  } catch (err) {
+    console.error(err)
+    setSending(false)
   }
+}
+
 
   return (
     <section id="contact" className="relative py-24 sm:py-32">
