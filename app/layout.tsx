@@ -26,9 +26,6 @@ export default function RootLayout({
       <body className="font-sans antialiased overflow-x-hidden">
   {children}
 </body>
-
-</body>
-
     </html>
   )
 }
