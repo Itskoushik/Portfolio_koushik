@@ -77,6 +77,8 @@ export function ContactSection() {
   setSending(true)
 
   const formData = new FormData(e.target)
+  formData.append("form-name", "contact")
+
 
   try {
     await fetch("/", {
