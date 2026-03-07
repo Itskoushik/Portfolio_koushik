@@ -88,7 +88,7 @@ export function Navbar() {
             </a>
           ))}
           <MagneticButton
-            href="https://drive.google.com/file/d/14DnSNwWjhqR72x2qYg4fX51eJ8Fckjgg/view?usp=sharing"
+            href="https://drive.google.com/file/d/1SKpXqPE2oakdeVVslUr5dUTqyoQ4547n/view?usp=sharing"
             strength={0.25}
             className="ml-4 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
           >
