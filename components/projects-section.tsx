@@ -14,7 +14,7 @@ const projects = [
     tags: ["Python", "PyQt5", "Pyserial", "SQlite", "PyVisa"],
     icon: Radar,
     color: "accent" as const,
-    github: "https://github.com/Itskoushik/ISTJ_software",
+    github: "https://github.com/Itskoushik/ISTJ_test_jig",
     demo: "#",
     featured: true,
   },
