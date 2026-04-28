@@ -6,8 +6,8 @@ import { useRef, useEffect, useState } from "react"
 
 const experiences = [
   {
-    title: "Python Developer",
-    company: "Harvel Systems",
+    title: "Software Development Engineer",
+    company: "Zing Technologies",
     period: "Dec 2025 - Present",
     description:
       " Machine automation using PyQt5, SCPI, UART, USB for embedded and test equipment integration. Automated UUT testing, data acquisition, and post-processing using Python-based automation frameworks",
